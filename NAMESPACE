@@ -1,0 +1,8 @@
+useDynLib(rpud)
+
+export(
+     rpuDevice, 
+     rpuDist
+     )
+     
+     

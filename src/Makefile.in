@@ -1,0 +1,28 @@
+EXT := cu 
+
+OBJS := rpud.o rpudist.o
+
+#compiler/preprocessor options
+INCS := -I@CUDA_HOME@/include
+PARAMS := -Xcompiler "@R_INCLUDE@ @CPICFLAGS@"
+
+#linker options
+LD_PARAMS := -Xlinker "@R_LIB@ @RPATHFLAG@"
+LIBS :=  @LIBS@
+
+TARGETS := rpud.so
+
+CC := @CUDA_HOME@/bin/nvcc
+
+all: $(TARGETS) 
+
+$(TARGETS): $(OBJS)
+	$(CC) -shared $(LD_PARAMS) $(LIBS) $(OBJS) -o $@
+
+$(OBJS): %.o: %.$(EXT)
+	$(CC) -c $(INCS) $(PARAMS) $^ -o $@
+
+clean:
+	rm -rf *o
+
+.PHONY: all clean

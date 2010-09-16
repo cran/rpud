@@ -1,0 +1,30 @@
+rpud
+====
+
+Currently, only Linux install is supported for rpud. Here are the 
+Linux installation steps:
+
+1) Install NVIDIA CUDA Toolkit on your Linux system. Instruction for 
+   Fedora Linux can be found at:
+
+     http://www.r-tutor.com/gpu-computing/cuda-installation
+     
+2) Export the following environment variable in .bashrc:
+
+     export R_LIBS_USER="<path of some folder in your home directory>"
+
+3) Expand the package in a temporary folder:
+
+     tar xf rpud_<version>.tar.gz
+
+4) Run configure in rpud:
+
+     cd rpud
+     ./configure
+     cd ..
+
+5) Then enter the following:
+
+     R CMD INSTALL rpud
+     
+     

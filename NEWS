@@ -1,0 +1,17 @@
+Sep 12, 2010
+============
+
+rpud v0.0.2:
+-----------
+  function: rpuDist
+     - [Bug 14375] revert back to abs(x+y) for Canberra distance
+      
+
+Sep 01, 2010
+============
+
+rpud v0.0.1:
+-----------
+  function: rpuDist
+     - abs(x)+abs(y) for denominator of Canberra distance
+
